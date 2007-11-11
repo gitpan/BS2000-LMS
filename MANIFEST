@@ -1,5 +1,5 @@
 Changes
-LMS.pm
+lib/BS2000/LMS.pm
 LMS.xs
 Makefile.PL
 MANIFEST
@@ -7,3 +7,6 @@ ppport.h
 README
 typemap
 t/LMS.t
+t/BS2LMS-pod.t
+t/BS2LMS-pod-coverage.t
+META.yml                                 Module meta-data (added by MakeMaker)

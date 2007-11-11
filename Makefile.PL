@@ -1,6 +1,6 @@
 use 5.005;
 use ExtUtils::MakeMaker;
-# man ExtUtils::MakeMaker for understanding this file
+# perldoc ExtUtils::MakeMaker for understanding this file
 
 die "This module will only compile in the BS2000 Posix subsystem!!!\n"
     if $^O ne 'posix-bc' and not (defined $ARGV[0] and $ARGV[0] eq '--force');
@@ -21,11 +21,11 @@ $lms_assert = ('perl -n -e '."'".
 
 WriteMakefile(
     'NAME'		=> 'BS2000::LMS',
-    'VERSION_FROM'	=> 'LMS.pm', # finds $VERSION
+    'VERSION_FROM'	=> 'lib/BS2000/LMS.pm', # finds $VERSION
     'PREREQ_PM'		=> {},
     ($] >= 5.006 ?
-      (ABSTRACT_FROM => 'LMS.pm', # retrieve abstract from module
-       AUTHOR     => 'Thomas Dorner <Thomas.Dorner (at) start.de>') : ()),
+      (ABSTRACT_FROM => 'lib/BS2000/LMS.pm', # retrieve abstract from module
+       AUTHOR     => 'Thomas Dorner <dorner (AT) pause.org>') : ()),
     # '-l BLSLIB' can not be used here as this is not a library file:
     'LIBS'		=> [''],
     # We must link our static perl executable with the LMS library in
@@ -40,5 +40,5 @@ WriteMakefile(
     # 'OBJECT'		=> '$(O_FILES)', # link all the C files too
     clean => { FILES => 'lms_asserts.h' },
     depend => { 'LMS.o' => 'lms_asserts.h',
-		'lms_asserts.h' => "LMS.pm\n\t$lms_assert" },
+		'lms_asserts.h' => "lib/BS2000/LMS.pm\n\t$lms_assert" },
 );

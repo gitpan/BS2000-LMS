@@ -2,7 +2,8 @@ use 5.005;
 use ExtUtils::MakeMaker;
 # perldoc ExtUtils::MakeMaker for understanding this file
 
-die "This module will only compile in the BS2000 Posix subsystem!!!\n"
+die "OS unsupported\n",
+    "This module will only compile in the BS2000 Posix subsystem!!!\n"
     if $^O ne 'posix-bc' and not (defined $ARGV[0] and $ARGV[0] eq '--force');
 
 # We need a special include lms_assert.h to make sure that the
